@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- medium style editor -->
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+  </head>
+  <body class=''>
+    <nav class="navbar navbar-default techfont custom-navbar">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'post_list' %}">My blog</a></li>
+          <li><a  href="{% url 'about' %}">About</a></li>
+        </ul>
+
+        <ul class='nav navbar-nav navbar-right'>
+          {% if user.is_authenticated %}
+          <li>
+            <a href="{% url 'post_new' %}">New Post</a>
+          </li>
+          <li>
+            <a href="{% url 'post_draft_list' %}">Drafts</a>
+          </li>
+          <li>
+            <a href="{% url 'logout' %}">Log Out</a>
+          </li>
+          <li>
+            <a >Welcome: {{user.username}}</a>
+          </li>
+
+          {% else %}
+          <li>
+            <a class='nav navbar-right' href="{% url 'login' %}">Login</a>
+          </li>
+          <li>
+            <a class='nav navbar-right' href="{% url 'register' %}">Register</a>
+          </li>
+          {% endif %}
+        </ul>
+
+      </div>
+    </nav>
+      <div class="content container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="blog_posts">
+              {% block content %}
+              {% endblock %}
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+  </body>
+</html>
