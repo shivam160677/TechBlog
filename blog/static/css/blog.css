@@ -1,3 +1,59 @@
+.para1{
+  font-size: 2.0em;
+  color: black;
+}
+/* h3 span { font-size:16px; } */
+/* h3 span { display: inline; } */
+/* .p { display: inline; } */
+
+.mynav{
+  background-color: black;
+  color: black;
+}
+
+.first{
+  font-size: 1em;
+  /* color: black; */
+}
+
+body{
+  /* color: lightblue; */
+  /* background-color: #cdd6d5; */
+  background-color: #d6e4f9;
+  /* caret-color: #8042f4; */
+}
+
+.extra2{
+  background-color: white;
+  width=500px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 2px solid white;
+   border-radius: 5px;
+   margin: 10px 50px 10px 50px;
+   padding-top: 5px;
+   padding-right: 10px;
+   padding-bottom: 5px;
+   padding-left: 20px;
+}
+
+
+.extra{
+  background-color: white;
+  width=500px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 2px solid white;
+   border-radius: 5px;
+   margin: 10px 50px 10px 50px;
+   padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+.first{
+  color:lightblue;
+}
+
 .techfont{
   font-family: 'Russo One',sans-serif;
   font-size: 1.5em;
@@ -5,8 +61,8 @@
 }
 
 .centerstage{
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 .bigbrand{
@@ -25,7 +81,9 @@
 
 .postcontent{
   font-family: 'Montserrat';
-  font-size: 1.5em;
+  font-size: 1.2em;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 .btn-comment{

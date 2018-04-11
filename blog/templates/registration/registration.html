@@ -2,18 +2,18 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<div class="container">
-  <div class="jumbotron">
+<div class="centerstage">
+  <div class="extra">
     {% if registered %}
-      <h1>Thank you for registering!</h1>
+      <h2 class="text-center">Thank you for registering.</h2>
     {% else %}
-      <h1>Register Here</h1>
-      <h3>Just fill out the form.</h3>
+      <h2 class="text-center">Register Here</h2>
+      <!-- <h3 class="text-center">Just fill out the form.</h3> -->
 
-      <form method="POST">
+      <form class="text-center" method="POST">
         {% csrf_token %}
         {{ user_form.as_p }}
-        <input type="submit" name="" value="Register">
+        <input type="submit" class="text-center btn btn-primary" name="" value="Register">
       </form>
 
     {% endif %}

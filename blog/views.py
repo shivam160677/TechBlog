@@ -36,13 +36,15 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):
     model=Post
     success_url = reverse_lazy('post_list')
 
-class DraftListView(LoginRequiredMixin,ListView):
+class PostDraftListView(LoginRequiredMixin,ListView):
     login_url='/login/'
-    redirect_field_name='blog/post_list.html'
+    redirect_field_name='blog/post_detail.html'
+    template_name='blog/post_draft_list.html'
+    context_object_name='posts'
     model=Post
 
     def get_queryset(self):
-        return Post.objects.filter(published_date__isnull=True).order_by('created_date')
+        return Post.objects.filter(created_date__isnull=False).order_by('-created_date')
 
 #############################
 #Functional views for comments

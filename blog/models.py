@@ -15,6 +15,10 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
+    # def authorname(self):
+    #     self.author=User.username
+    #     self.save()
+
     # def approve_comments(self):
     #     return self.comments.filter(approved_comment=True)
 

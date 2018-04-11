@@ -1,12 +1,22 @@
 {% extends "blog/base.html" %}
 {% block content %}
 {% for post in posts %}
-  <div class="post">
-    <p class="date">created: {{post.created_date|date:'d-m-Y'}}</p>
-    <h1>
-      <a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a>
-    </h1>
-    <p>{{post.text|truncatechars:200}}</p>
+  {% ifequal user post.author %}
+  <div class="centerstage">
+    <div class="extra">
+
+      <p ><a class="para1" href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></p>
+      <div class="date">
+        {% if post.published_date %}
+        <p>Published on : {{post.published_date|date:'d-m-Y'}}</p>
+        {% else %}
+        <p>It is not Published yet.</p>
+        {% endif %}
+        <p>{{post.text|truncatechars:200}}</p>
+       </div>
+
+    </div>
   </div>
+  {% endifequal %}
 {% endfor %}
 {% endblock %}
