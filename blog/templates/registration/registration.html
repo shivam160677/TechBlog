@@ -9,12 +9,27 @@
     {% else %}
       <h2 class="text-center">Register Here</h2>
       <!-- <h3 class="text-center">Just fill out the form.</h3> -->
+      <div class="container" style="width:30%">
+        <form class="text-center" method="POST">
+          {% csrf_token %}
+          {% for error in user_form.non_field_errors %}
+            <div class="form-group has-errors text-danger small">
+              {{error}}
+            </div>
+          {% endfor %}
+          {% for field in user_form %}
+            <div class="form-group has-errors text-danger small">
+              {{field.errors}}
+            </div>
+            <div class="form-group">
+              {{field}}
+            </div>
+          {% endfor %}
 
-      <form class="text-center" method="POST">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        <input type="submit" class="text-center btn btn-primary" name="" value="Register">
-      </form>
+          <input type="submit" class="text-center btn btn-primary" name="" value="Register">
+        </form>
+      </div>
+
 
     {% endif %}
 

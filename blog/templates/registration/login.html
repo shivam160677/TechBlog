@@ -1,22 +1,32 @@
 
 {% extends 'blog/base.html' %}
-
+{% load widget_tweaks %}
 
 {% block content %}
   <div class="centerstage">
     <div class="extra">
-    <h2 class="text-center">Please Login: </h2>
+    <h2 class="text-center">Login Here: </h2>
+    <br>
     <!-- <h3>(Must be SuperUser, please check admin for issues.)</h3> -->
     {% if form.errors %}
         <p class="text-center">Your username and password didn't match.Please try again!</p>
     {% endif %}
+    <div class="container" style="width:30%">
+      <form class="text-center" method="POST" action="{% url 'login' %}">
+          {% csrf_token %}
+          {% for field in form %}
+            <div class="form-group">
+              {% render_field field class="form-control" placeholder=field.name %}
+              <!-- {{field}} -->
+            </div>
 
-    <form class="text-center" method="POST" action="{% url 'login' %}">
-      {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" class='text-center btn btn-primary' value="Login" />
-        <input type="hidden" name="next" value="{{ next }}" />
-    </form>
+          {% endfor %}
+          <!-- {{ form }} -->
+          <input type="submit" class='text-center btn btn-primary' value="Login" />
+          <input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    </div>
+
     </div>
   </div>
 {% endblock %}

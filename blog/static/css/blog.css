@@ -1,6 +1,11 @@
 .para1{
-  font-size: 2.0em;
+  font-size: 1.8em;
   color: black;
+}
+
+.heading3{
+  font-size: 17px;
+  /* color: black; */
 }
 /* h3 span { font-size:16px; } */
 /* h3 span { display: inline; } */
@@ -53,7 +58,10 @@ body{
 .first{
   color:lightblue;
 }
-
+.comments{
+  font-family: 'Maven Pro', sans-serif;
+  font-size: 1.0em;
+}
 .techfont{
   font-family: 'Russo One',sans-serif;
   font-size: 1.5em;
@@ -64,7 +72,10 @@ body{
   margin-right: 50px;
   margin-left: 50px;
 }
-
+.centerstage2{
+  margin-right: 50px;
+  margin-left: 700px;
+}
 .bigbrand{
   font-size: 1.5em;
 }
@@ -80,10 +91,12 @@ body{
 }
 
 .postcontent{
-  font-family: 'Montserrat';
+  /* font-family: 'Montserrat'; */
+  /* font-family: 'Crimson Text', serif; */
+  font-family: 'Maven Pro', sans-serif;
   font-size: 1.2em;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-left: 19px;
+  margin-right: 17px;
 }
 
 .btn-comment{

@@ -4,7 +4,15 @@
   <div class="extra">
     <h2 class="text-center">{{post.title}}</h2>
     <p class="postcontent">{{post.text|safe|linebreaksbr}}</p>
+    <p class="postcontent">Written by: {{post.author}}</p>
+    {% if user.is_authenticated  %}
+      {% ifequal user post.author %}
+      <a class="centerstage2" href="{% url 'post_edit' pk=post.pk %}">Edit</a>
+      <a class="" href="{% url 'post_remove' pk=post.pk %}">Delete</span></a>
+      {% endifequal %}
+    {% endif %}
   </div>
+
   <div class="">
     {% if post.published_date %}
       <div class="date postdate">
@@ -13,14 +21,10 @@
     {% else %}
       <a class="centerstage btn btn-primary" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
     {% endif %}
+
   </div>
 
-  {% if user.is_authenticated  %}
-    {% ifequal user post.author %}
-    <a class="centerstage btn btn=primary" href="{% url 'post_edit' pk=post.pk %}"><span class='glyphicon glyphicon-pencil'></span></a>
-    <a class="centerstage btn btn=primary" href="{% url 'post_remove' pk=post.pk %}"><span class='glyphicon glyphicon-remove'></span></a>
-    {% endifequal %}
-  {% endif %}
+
 
 
   <div class="">
@@ -35,8 +39,9 @@
   {% else %}
   {% for comment in post.comments.all %}
     <div class=" extra2 ">
-      <h3>{{comment.author}}:</h3>
-      <p>{{comment.text}}</p>
+      <!-- <h3>{{comment.author}}:</h3> -->
+      <p class="comments"><strong>{{comment.author}} :</strong> {{comment.text}}</p>
+      <!-- <p>{{comment.text}}</p> -->
     </div>
   {%  endfor %}
   {% endif %}

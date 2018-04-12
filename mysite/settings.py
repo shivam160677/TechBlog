@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +126,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+# CRISPY_TEMPLATE_PACK='bootstrap3'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/

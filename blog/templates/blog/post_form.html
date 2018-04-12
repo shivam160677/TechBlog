@@ -1,14 +1,27 @@
 {% extends "blog/base.html" %}
+{% load widget_tweaks %}
 {% block content %}
 <div class="centerstage">
   <div class="extra">
     <h2 class="text-center">New Post</h2>
-    <form class="form-horizontal" method="POST" role="form">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button type="submit" class="save btn btn-primary">Save</button>
-    </form>
-    <script>var editor= new MediumEditor('.editabe');</script>
+    <div class="container" style="width:60%">
+      <h3 class="heading3">Author:</h3>
+      <form class="text-center form-horizontal" method="POST" role="form">
+        {% csrf_token %}
+
+        {% for field in form %}
+          <div class="form-group">
+            {% render_field field class="form-control" placeholder=field.name %}
+          </div>
+        {% endfor %}
+        <!-- {{form.as_p}} -->
+        <input type="submit" class='text-center btn btn-primary' value="Save" />
+      </form>
+      <!-- <button type="submit" class="text-center save btn btn-primary">Save</button> -->
+    </div>
+
+
+    <!-- <script>var editor= new MediumEditor('.editabe');</script> -->
   </div>
 </div>
 
